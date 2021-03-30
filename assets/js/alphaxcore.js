@@ -658,7 +658,7 @@ function loadDashboardChart(walletAddress) {
 	labels = [];
 	minerHashRate = [];	
         $.each(data, function(index, value) {
-	if (labels.length === 0 || (labels.length + 1) % 4 === 1) {
+	if (labels.length === 0 || (labels.length + 1) % 2 === 1) {
 		var createDate = convertLocalDateToUTCDate(
 		new Date(value.created),
 		false
@@ -745,15 +745,15 @@ function loadBlocksPage() {
 		blockList += "<td>n/a</td>";
 		}
 	var status = value.status;
-		if (typeof value.status !== "confirmed") {
-		blockList += "<td><span class='badge badge-success'>Confirmed</span></td>";
-		} else if (typeof value.status !== "pending") {
-		blockList += "<td><span class='badge badge-warning'>Pending</span></td>";
-		} else if (typeof value.status !== "orphaned") {
-		blockList += "<td><span class='badge badge-danger'>Orphaned</span></td>";
-		} else {
-		blockList += "<td>" + status + "</td>";
-		}
+                if (value.status == "confirmed") {
+                blockList += "<td><span class='badge badge-success'>Confirmed</span></td>";
+                } else if (value.status == "pending") {
+                blockList += "<td><span class='badge badge-warning'>Pending</span></td>";
+                } else if (value.status == "orphaned") {
+                blockList += "<td><span class='badge badge-danger'>Orphaned</span></td>";
+                } else {
+                blockList += "<td>" + status + "</td>";
+                }
 		blockList += "<td>" + _formatter(value.reward, 5, "") + "</td>";
 		blockList += "<td><div class='progress-bar bg-info progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='" + calcs + "' aria-valuemin='0' aria-valuemax='100' style='width: " + calcs + "%'><span>" + calcs + "% Completed</span></div></td>";
 		blockList += "</tr>";
