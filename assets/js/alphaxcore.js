@@ -4,9 +4,9 @@
   * Copyright 2021 Authors AlphaX Projects
 */
 
-var WebURL         = "https://yourwebsite/";
-var API            = "https://yourwebsite:4000/api/";
-var stratumAddress = "stratum+tcp://yourwebsite";
+var WebURL         = "https://pool.xazab.xyz/";
+var API            = "https://pool.xazab.xyz/api/";
+var stratumAddress = "stratum+tcp://pool.xazab.xyz";
 
 currentPage = "index";
 
